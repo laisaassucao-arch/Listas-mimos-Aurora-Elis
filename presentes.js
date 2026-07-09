@@ -138,5 +138,75 @@ export const presentes = [
   nome: "Sapatinho de Tricô Branco",
   link: "https://s.shopee.com.br/5q6RYPXFA2",
   reservado: false
+},
+{
+  id: "tricot-rosa",
+  categoria: "calcados",
+  nome: "Sapatinho de Tricô Rosa",
+  link: "https://s.shopee.com.br/5q6RYPXFA2",
+  reservado: false
+},
+{
+  id: "sapatinho-flores",
+  categoria: "calcados",
+  nome: "Sapatinho Rosa com Flores",
+  link: "https://s.shopee.com.br/W4vCmUKt4",
+  reservado: false
+},
+{
+  id: "bomba-leite",
+  categoria: "amamentacao",
+  nome: "Bomba de Leite",
+  link: "https://s.shopee.com.br/AAFQin1qO3",
+  reservado: false
+},
+{
+  id: "rosquinha-mama",
+  categoria: "amamentacao",
+  nome: "Rosquinha de Amamentação",
+  link: "https://s.shopee.com.br/4fuUAoSHTt",
+  reservado: false
+},
+{
+  id: "touca-luva",
+  categoria: "acessorios",
+  nome: "Touca e Luva Personalizada",
+  link: "https://s.shopee.com.br/5fn1MhRf78",
+  reservado: false
+},
+{
+  id: "vestido-baby",
+  categoria: "roupinhas",
+  nome: "Vestido Baby",
+  link: "https://s.shopee.com.br/4qDuNUzFl7",
+  reservado: false
+},
+{
+  id: "body-flor",
+  categoria: "roupinhas",
+  nome: "Body Baby Flor",
+  link: "https://s.shopee.com.br/40enOA2wMg",
+  reservado: false
+},
+{
+  id: "roupa-floral",
+  categoria: "roupinhas",
+  nome: "Roupa Floral",
+  link: "https://s.shopee.com.br/3ViWyjCDj5",
+  reservado: false
+},
+{
+  id: "pomada-assadura",
+  categoria: "higiene",
+  nome: "Pomada de Assadura (Mustela, Desitin ou Bepantol)",
+  link: "",
+  reservado: false
+},
+{
+  id: "lenco-umedecido",
+  categoria: "higiene",
+  nome: "Lenço Umedecido (Johnson's)",
+  link: "",
+  reservado: false
 }
 ];
