@@ -68,5 +68,75 @@ export const presentes = [
     nome: "Kit Body",
     link: "https://s.shopee.com.br/6ffYVbvmAk",
     reservado: false
-  }
+  },
+{
+  id: "kit-tapa-fralda",
+  categoria: "roupinhas",
+  nome: "Kit Tapa Fralda",
+  link: "https://s.shopee.com.br/40enKMNc8M",
+  reservado: false
+},
+{
+  id: "lacinhos",
+  categoria: "acessorios",
+  nome: "Lacinhos",
+  link: "https://s.shopee.com.br/70IOtndVmT",
+  reservado: false
+},
+{
+  id: "meias",
+  categoria: "acessorios",
+  nome: "Meias",
+  link: "https://s.shopee.com.br/8V7CiehqY8",
+  reservado: false
+},
+{
+  id: "kit-meia-luva",
+  categoria: "acessorios",
+  nome: "Kit Meia e Luva",
+  link: "https://s.shopee.com.br/5fn1LbIphS",
+  reservado: false
+},
+{
+  id: "kit-lacos",
+  categoria: "acessorios",
+  nome: "Kit Laços",
+  link: "https://s.shopee.com.br/2g9Pm9uCof",
+  reservado: false
+},
+{
+  id: "sapatinho-1",
+  categoria: "calcados",
+  nome: "Sapatinho",
+  link: "https://s.shopee.com.br/7KvFKmF1Ry",
+  reservado: false
+},
+{
+  id: "calcado-baby",
+  categoria: "calcados",
+  nome: "Calçado Baby",
+  link: "https://s.shopee.com.br/20tizAHUAi",
+  reservado: false
+},
+{
+  id: "sapatilha-dourada",
+  categoria: "calcados",
+  nome: "Sapatilha Baby Dourada",
+  link: "https://s.shopee.com.br/60PrkZREqh",
+  reservado: false
+},
+{
+  id: "sapatinho-2",
+  categoria: "calcados",
+  nome: "Sapatinho Rosa",
+  link: "https://s.shopee.com.br/9KgJimujSu",
+  reservado: false
+},
+{
+  id: "tricot-branco",
+  categoria: "calcados",
+  nome: "Sapatinho de Tricô Branco",
+  link: "https://s.shopee.com.br/5q6RYPXFA2",
+  reservado: false
+}
 ];
