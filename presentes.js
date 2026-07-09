@@ -208,5 +208,75 @@ export const presentes = [
   nome: "Lenço Umedecido (Johnson's)",
   link: "",
   reservado: false
+},
+{
+  id: "algodao",
+  categoria: "higiene",
+  nome: "Algodão",
+  link: "",
+  reservado: false
+},
+{
+  id: "alcool-70",
+  categoria: "higiene",
+  nome: "Álcool 70%",
+  link: "",
+  reservado: false
+},
+{
+  id: "hidratante",
+  categoria: "higiene",
+  nome: "Hidratante Corporal (Mamãe e Bebê Natura ou Mustela)",
+  link: "",
+  reservado: false
+},
+{
+  id: "sabonete",
+  categoria: "higiene",
+  nome: "Sabonete (Johnson's ou Mustela)",
+  link: "",
+  reservado: false
+},
+{
+  id: "cotonete",
+  categoria: "higiene",
+  nome: "Cotonete",
+  link: "",
+  reservado: false
+},
+{
+  id: "perfume",
+  categoria: "higiene",
+  nome: "Perfume Mamãe e Bebê Natura",
+  link: "",
+  reservado: false
+},
+{
+  id: "shampoo",
+  categoria: "higiene",
+  nome: "Shampoo Neutro (Johnson's, Mustela ou Mamãe e Bebê Natura)",
+  link: "",
+  reservado: false
+},
+{
+  id: "meias-sem-link",
+  categoria: "acessorios",
+  nome: "Meias",
+  link: "",
+  reservado: false
+},
+{
+  id: "luvas-sem-link",
+  categoria: "acessorios",
+  nome: "Luvas",
+  link: "",
+  reservado: false
+},
+{
+  id: "macacao-fofo",
+  categoria: "roupinhas",
+  nome: "Macacão Fofo",
+  link: "",
+  reservado: false
 }
 ];
