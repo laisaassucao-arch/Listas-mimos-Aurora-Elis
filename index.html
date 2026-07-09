@@ -3,138 +3,166 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Lista de Mimos da Aurora Elis</title>
+<title>Lista de Mimos da Aurora Elis</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<header>
+<header class="hero">
 
-    <h1>🌸 Aurora Elis 🌸</h1>
+<div class="hero-content">
 
-    <p class="subtitulo">
+<h1>🌸 Aurora Elis 🌸</h1>
 
-        Nossa pequena Aurora Elis está chegando! 💕
+<p>
 
-        <br><br>
+Nossa pequena Aurora Elis está chegando!
 
-        Cada mimo escolhido fará parte dos primeiros dias da nossa princesa.
+<br><br>
 
-        Muito obrigada por compartilhar esse momento tão especial conosco.
+Cada mimo escolhido fará parte dos primeiros dias da nossa princesa.
 
-    </p>
+Muito obrigada por compartilhar esse momento tão especial conosco.
+
+</p>
+
+<div class="contador" id="contador">
+
+🎁 Carregando lista...
+
+</div>
+
+<input
+
+type="text"
+
+id="pesquisa"
+
+placeholder="🔎 Pesquisar um mimo"
+
+>
+
+</div>
 
 </header>
 
-<section class="container">
+<main class="container">
 
-    <div class="contador">
+<section class="categoria">
 
-        <h3 id="contador">
-            🎁 Carregando presentes...
-        </h3>
+<h2>🍼 Higiene</h2>
 
-    </div>
-
-    <div class="pesquisa">
-
-        <input
-            type="text"
-            id="pesquisa"
-            placeholder="🔎 Procurar um mimo">
-
-    </div>
-
-    <!-- HIGIENE -->
-
-    <section class="categoria">
-
-        <h2>🍼 Higiene</h2>
-
-        <div class="grid" id="higiene"></div>
-
-    </section>
-
-    <!-- CUIDADOS -->
-
-    <section class="categoria">
-
-        <h2>🧸 Cuidados</h2>
-
-        <div class="grid" id="cuidados"></div>
-
-    </section>
-
-    <!-- ROUPINHAS -->
-
-    <section class="categoria">
-
-        <h2>👗 Roupinhas</h2>
-
-        <div class="grid" id="roupinhas"></div>
-
-    </section>
-
-    <!-- QUARTO -->
-
-    <section class="categoria">
-
-        <h2>🛏️ Quarto</h2>
-
-        <div class="grid" id="quarto"></div>
-
-    </section>
-
-    <!-- AMAMENTAÇÃO -->
-
-    <section class="categoria">
-
-        <h2>🤱 Amamentação</h2>
-
-        <div class="grid" id="amamentacao"></div>
-
-    </section>
-
-    <!-- OUTROS -->
-
-    <section class="categoria">
-
-        <h2>🎁 Outros</h2>
-
-        <div class="grid" id="outros"></div>
-
-    </section>
+<div id="higiene" class="cards"></div>
 
 </section>
 
-<footer>
+<section class="categoria">
 
-    <p>
+<h2>🧸 Acessórios</h2>
 
-        Com carinho,
+<div id="acessorios" class="cards"></div>
 
-        <br><br>
+</section>
 
-        <strong>Mamãe e Papai 💕</strong>
+<section class="categoria">
 
-    </p>
+<h2>👗 Roupinhas</h2>
 
-</footer>
+<div id="roupinhas" class="cards"></div>
 
-<script type="module" src="firebase.js"></script>
-<script type="module" src="script.js"></script>
+</section>
+    <!DOCTYPE html>
+<html lang="pt-BR">
 
-</body>
+<head>
 
-</html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lista de Mimos da Aurora Elis</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>🌸 Aurora Elis 🌸</h1>
+
+<p>
+
+Nossa pequena Aurora Elis está chegando!
+
+<br><br>
+
+Cada mimo escolhido fará parte dos primeiros dias da nossa princesa.
+
+Muito obrigada por compartilhar esse momento tão especial conosco.
+
+</p>
+
+<div class="contador" id="contador">
+
+🎁 Carregando lista...
+
+</div>
+
+<input
+
+type="text"
+
+id="pesquisa"
+
+placeholder="🔎 Pesquisar um mimo"
+
+>
+
+</div>
+
+</header>
+
+<main class="container">
+
+<section class="categoria">
+
+<h2>🍼 Higiene</h2>
+
+<div id="higiene" class="cards"></div>
+
+</section>
+
+<section class="categoria">
+
+<h2>🧸 Acessórios</h2>
+
+<div id="acessorios" class="cards"></div>
+
+</section>
+
+<section class="categoria">
+
+<h2>👗 Roupinhas</h2>
+
+<div id="roupinhas" class="cards"></div>
+
+</section>
