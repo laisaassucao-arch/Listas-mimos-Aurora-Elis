@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,#FFF8F6,#FDF2EE,#FFFDFB);
+    color:#6E5A58;
+}
+
+header{
+    padding:70px 20px 40px;
+    text-align:center;
+    position:relative;
+}
+
+header::before{
+    content:"🌸";
+    position:absolute;
+    left:30px;
+    top:25px;
+    font-size:34px;
+    opacity:.35;
+}
+
+header::after{
+    content:"🌿";
+    position:absolute;
+    right:30px;
+    top:35px;
+    font-size:32px;
+    opacity:.35;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    color:#B67A7A;
+    margin-bottom:12px;
+}
+
+.subtitulo{
+    max-width:650px;
+    margin:auto;
+    line-height:1.7;
+    color:#8B7673;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+    padding-bottom:80px;
+}
+
+.categoria{
+    margin-top:55px;
+}
+
+.categoria h2{
+    font-family:'Cormorant Garamond',serif;
+    color:#B67A7A;
+    margin-bottom:25px;
+    font-size:2rem;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 10px 30px rgba(210,170,170,.15);
+    transition:.25s;
+    border:1px solid #F3E6E1;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.nome{
+    font-size:1.1rem;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.status{
+    display:inline-block;
+    margin-bottom:18px;
+    color:#B08A62;
+    background:#FFF5E8;
+    padding:7px 14px;
+    border-radius:40px;
+    font-size:.88rem;
+}
+
+button{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    border-radius:14px;
+    padding:14px;
+    background:#D9A6A6;
+    color:white;
+    font-size:1rem;
+    transition:.2s;
+}
+
+button:hover{
+    background:#C88E8E;
+}
+
+.reservado{
+    opacity:.72;
+}
+
+.reservado button{
+    background:#C9C9C9;
+    cursor:not-allowed;
+}
+
+footer{
+    margin-top:80px;
+    padding:45px 20px;
+    text-align:center;
+    color:#9D7B7B;
+    border-top:1px solid #F2E4DF;
+}
+
+footer strong{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.5rem;
+}
+
+@media(max-width:700px){
+
+h1{
+font-size:2.3rem;
+}
+
+header{
+padding-top:50px;
+}
+
+}
