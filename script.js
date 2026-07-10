@@ -24,6 +24,19 @@ const categorias = {
 };
 
 let reservas = {};
+// ---------- MODAL ----------
+
+const modal = document.getElementById("modalReserva");
+
+const nomeInput = document.getElementById("nomeConvidado");
+const telefoneInput = document.getElementById("telefoneConvidado");
+const mensagemInput = document.getElementById("mensagemConvidado");
+
+const cancelarReserva = document.getElementById("cancelarReserva");
+const confirmarReserva = document.getElementById("confirmarReserva");
+
+let presenteSelecionado = null;
+
 // ---------- CARD ----------
 
 function criarCard(presente) {
@@ -123,22 +136,24 @@ pesquisa.addEventListener("input", (e) => {
 
 // ---------- RESERVAR ----------
 
-document.addEventListener("click", async (e) => {
+document.addEventListener("click", (e) => {
+
+    console.log("Botão clicado!");
 
     if (!e.target.classList.contains("btn-reservar")) return;
 
-    const id = e.target.dataset.id;
+    presenteSelecionado = e.target.dataset.id;
 
-    if (!confirm("Deseja reservar este mimo?")) return;
+    nomeInput.value = "";
+    telefoneInput.value = "";
+    mensagemInput.value = "";
 
-    await setDoc(
-        doc(db, "reservas", id),
-        {
-            reservado: true
-        }
-    );
+    modal.classList.remove("oculto");
+
+    nomeInput.focus();
 
 });
+
 // ---------- FIREBASE ----------
 
 onSnapshot(collection(db, "reservas"), (snapshot) => {
