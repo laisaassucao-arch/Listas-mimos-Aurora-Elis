@@ -256,3 +256,5 @@ fecharPainel.addEventListener("click", () => {
     painelMamae.classList.add("oculto");
 
 });
+
+console.log("Script carregado!");console.log("Script carregado!");
