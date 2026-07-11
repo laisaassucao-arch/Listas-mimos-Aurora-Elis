@@ -1,34 +1,72 @@
-import { db } from "./firebase.js";
-
-import {
-    collection,
-    onSnapshot
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { presentes } from "./presentes.js";
+import { listarTodasReservas } from "./reservas.js";
 
 const lista = document.getElementById("listaReservas");
+const totalReservas = document.getElementById("totalReservas");
+const totalPresentes = document.getElementById("totalPresentes");
+const pesquisa = document.getElementById("pesquisar");
 
-onSnapshot(collection(db, "reservas"), (snapshot) => {
+let todasReservas = [];
 
-    lista.innerHTML = "";
+function nomePresente(id){
 
-    snapshot.forEach((docItem) => {
+    const presente = presentes.find(p => p.id === id);
 
-        const dados = docItem.data();
+    return presente ? presente.nome : id;
+
+}
+
+function renderizar(filtro=""){
+
+    lista.innerHTML="";
+
+    const reservasFiltradas = todasReservas.filter(reserva=>{
+
+        const nome = reserva.nome.toLowerCase();
+        const presente = nomePresente(reserva.presenteId).toLowerCase();
+
+        return nome.includes(filtro.toLowerCase())
+            || presente.includes(filtro.toLowerCase());
+
+    });
+
+    totalReservas.textContent = reservasFiltradas.length;
+
+    totalPresentes.textContent =
+        new Set(reservasFiltradas.map(r=>r.presenteId)).size;
+
+    reservasFiltradas.forEach(reserva=>{
 
         lista.innerHTML += `
-            <div class="card">
+            <div class="reserva-card">
 
-                <h3>${dados.nome}</h3>
+                <h3>🎁 ${nomePresente(reserva.presenteId)}</h3>
 
-                <p><strong>Presente:</strong> ${dados.presenteId}</p>
+                <p><strong>👤</strong> ${reserva.nome}</p>
 
-                <p><strong>WhatsApp:</strong> ${dados.telefone || "-"}</p>
+                <p><strong>📱</strong> ${reserva.telefone || "-"}</p>
 
-                <p><strong>Mensagem:</strong> ${dados.mensagem || "-"}</p>
+                <p><strong>💌</strong> ${reserva.mensagem || "-"}</p>
 
             </div>
         `;
 
     });
 
+}
+
+async function carregar(){
+
+    todasReservas = await listarTodasReservas();
+
+    renderizar();
+
+}
+
+pesquisa.addEventListener("input",(e)=>{
+
+    renderizar(e.target.value);
+
 });
+
+carregar();
