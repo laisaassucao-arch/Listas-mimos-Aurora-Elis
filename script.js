@@ -302,6 +302,7 @@ painelMamae.classList.remove("oculto");
 async function carregarAreaMamae() {
 
     const reservas = await listarTodasReservas();
+    console.log(reservas);
 
     listaReservas.innerHTML = "";
 
