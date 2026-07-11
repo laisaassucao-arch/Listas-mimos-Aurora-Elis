@@ -10,7 +10,7 @@ import {
     salvarReserva,
     contarReservas,
     listarTodasReservas,
-    cancelarReserva
+    cancelarReserva as cancelarReservaFirestore
 } from "./reservas.js";
 
 // ---------- ELEMENTOS ----------
@@ -306,9 +306,9 @@ painelMamae.classList.remove("oculto");
 });
 async function carregarAreaMamae() {
 
-    reservasMamae = await listarTodasReservas();
-
-const reservas = reservasMamae;
+    reservasMamae = await cancelarReservaFirestore(
+    e.target.dataset.id
+);
 
     listaReservas.innerHTML = "";
 
