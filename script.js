@@ -241,23 +241,62 @@ onSnapshot(collection(db, "reservas"), (snapshot) => {
 
 renderizarLista();
 
+// ==============================
+// ÁREA DA MAMÃE
+// ==============================
+
 const painelMamae = document.getElementById("painelMamae");
 const abrirMamae = document.getElementById("abrirMamae");
 const fecharPainel = document.getElementById("fecharPainel");
-const sitePublico = document.getElementById("sitePublico");
 
+const modalLogin = document.getElementById("modalLoginMamae");
+const senhaMamae = document.getElementById("senhaMamae");
+
+const entrarMamae = document.getElementById("entrarMamae");
+const cancelarLogin = document.getElementById("cancelarLogin");
+
+const SENHA_MAMAE = "Aurora2026";
+
+// Abre o modal de login
 abrirMamae.addEventListener("click", () => {
 
-    sitePublico.style.display = "none";
+    senhaMamae.value = "";
+
+    modalLogin.classList.remove("oculto");
+
+    senhaMamae.focus();
+
+});
+
+// Fecha o modal de login
+cancelarLogin.addEventListener("click", () => {
+
+    modalLogin.classList.add("oculto");
+
+});
+
+// Verifica a senha
+entrarMamae.addEventListener("click", () => {
+
+    if (senhaMamae.value !== SENHA_MAMAE) {
+
+        alert("Senha incorreta!");
+
+        senhaMamae.focus();
+
+        return;
+
+    }
+
+    modalLogin.classList.add("oculto");
 
     painelMamae.classList.remove("oculto");
 
 });
 
+// Fecha o painel
 fecharPainel.addEventListener("click", () => {
 
     painelMamae.classList.add("oculto");
-
-    sitePublico.style.display = "block";
 
 });
