@@ -627,4 +627,30 @@ transform:translateY(0) scale(1);
 
 }
 
+/* ===========================
+   TOPO AURORA
+=========================== */
+
+.logo-aurora{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:35px;
+
+}
+
+.logo-aurora img{
+
+width:650px;
+
+max-width:95%;
+
+height:auto;
+
+display:block;
+
+margin:auto;
+
 }
