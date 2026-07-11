@@ -415,7 +415,7 @@ document.addEventListener("click", async (e) => {
 
     try {
 
-        await cancelarReserva(
+        await cancelarReservaFirestore(
             e.target.dataset.id
         );
 
