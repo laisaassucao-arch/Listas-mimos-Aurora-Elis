@@ -35,7 +35,7 @@ export const presentes = [
     categoria: "quarto",
     nome: "Organizador de Cabides",
     link: "https://s.shopee.com.br/5LAAwPDoWP",
-    quantidadeDesejada: 5,
+   
   },
   {
     id: "kit-higiene",
