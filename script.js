@@ -2,10 +2,8 @@ import { presentes } from "./presentes.js";
 import { db } from "./firebase.js";
 
 import {
-    doc,
-    setDoc,
-    onSnapshot,
-    collection
+    collection,
+    onSnapshot
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 import {
@@ -49,7 +47,11 @@ function criarCard(presente) {
     const card = document.createElement("div");
     card.className = "card";
 
-    const reservado = reservas[presente.id] === true;
+    const quantidadeDesejada = presente.quantidadeDesejada || 1;
+
+    const quantidadeReservada = reservas[presente.id] || 0;
+
+    const reservado = quantidadeReservada >= quantidadeDesejada;
 
     let botaoShopee = "";
 
@@ -69,7 +71,11 @@ function criarCard(presente) {
         <div class="nome">${presente.nome}</div>
 
         <span class="status">
-            ${reservado ? "💖 Reservado" : "💕 Disponível"}
+            ${
+         quantidadeDesejada === 1
+        ? (reservado ? "💖 Reservado" : "💕 Disponível")
+        : `💕 ${quantidadeReservada} de ${quantidadeDesejada} reservados`
+}
         </span>
 
         ${botaoShopee}
@@ -123,11 +129,10 @@ function atualizarContador() {
     const total = presentes.length;
 
     const reservados = Object.values(reservas)
-        .filter(valor => valor === true)
-        .length;
+        .reduce((total, quantidade) => total + quantidade, 0);
 
     contador.textContent =
-        `🎁 ${reservados} de ${total} mimos reservados`;
+        `🎁 ${reservados} mimos reservados`;
 
 }
 
@@ -167,6 +172,49 @@ cancelarReserva.addEventListener("click", () => {
 
 });
 
+// ---------- CONFIRMAR ----------
+
+confirmarReserva.addEventListener("click", async () => {
+
+    const nome = nomeInput.value.trim();
+    const telefone = telefoneInput.value.trim();
+    const mensagem = mensagemInput.value.trim();
+
+    if (!nome) {
+        alert("Por favor, informe seu nome.");
+        nomeInput.focus();
+        return;
+    }
+
+    try {
+
+        await salvarReserva({
+            presenteId: presenteSelecionado,
+            nome,
+            telefone,
+            mensagem
+        });
+
+        modal.classList.add("oculto");
+
+        nomeInput.value = "";
+        telefoneInput.value = "";
+        mensagemInput.value = "";
+
+        alert("💕 Reserva realizada com sucesso!");
+
+        renderizarLista(pesquisa.value);
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert("Ocorreu um erro ao salvar a reserva.");
+
+    }
+
+});
+
 // ---------- FIREBASE ----------
 
 onSnapshot(collection(db, "reservas"), (snapshot) => {
@@ -175,7 +223,13 @@ onSnapshot(collection(db, "reservas"), (snapshot) => {
 
     snapshot.forEach((docItem) => {
 
-        reservas[docItem.id] = docItem.data().reservado === true;
+        const dados = docItem.data();
+
+        if (!reservas[dados.presenteId]) {
+            reservas[dados.presenteId] = 0;
+        }
+
+        reservas[dados.presenteId]++;
 
     });
 
