@@ -261,6 +261,10 @@ const listaReservas = document.getElementById("listaReservas");
 const totalReservas = document.getElementById("totalReservas");
 const totalPresentes = document.getElementById("totalPresentes");
 
+const pesquisarMamae = document.getElementById("pesquisarMamae");
+
+let reservasMamae = [];
+
 const SENHA_MAMAE = "Aurora2026";
 
 // Abre o modal de login
@@ -302,7 +306,9 @@ painelMamae.classList.remove("oculto");
 });
 async function carregarAreaMamae() {
 
-    const reservas = await listarTodasReservas();
+    reservasMamae = await listarTodasReservas();
+
+const reservas = reservasMamae;
 
     listaReservas.innerHTML = "";
 
@@ -428,6 +434,25 @@ document.addEventListener("click", async (e) => {
         alert("Erro ao cancelar a reserva.");
 
     }
+
+});
+
+pesquisarMamae.addEventListener("input", (e) => {
+
+    const texto = e.target.value.toLowerCase();
+
+    const cards = document.querySelectorAll(".reserva-card");
+
+    cards.forEach(card => {
+
+        const conteudo = card.innerText.toLowerCase();
+
+        card.style.display =
+            conteudo.includes(texto)
+                ? "block"
+                : "none";
+
+    });
 
 });
            
