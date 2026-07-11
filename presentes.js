@@ -42,7 +42,7 @@ export const presentes = [
     categoria: "higiene",
     nome: "Kit Higiene",
     link: "https://s.shopee.com.br/2BD9AqsXEw",
-    quantidadeDesejada: 3,
+    
   },
   {
     id: "cesto",
@@ -184,7 +184,7 @@ export const presentes = [
   categoria: "higiene",
   nome: "Lenço Umedecido (Johnson's)",
   link: "",
-  quantidadeDesejada: 20,
+  quantidadeDesejada: 12,
 },
 {
   id: "algodao",
@@ -197,7 +197,6 @@ export const presentes = [
   categoria: "higiene",
   nome: "Álcool 70%",
   link: "",
-  quantidadeDesejada: 5,
 },
 {
   id: "hidratante",
@@ -211,14 +210,13 @@ export const presentes = [
   categoria: "higiene",
   nome: "Sabonete (Johnson's ou Mustela)",
   link: "",
-  quantidadeDesejada: 10,
+  quantidadeDesejada: 6,
 },
 {
   id: "cotonete",
   categoria: "higiene",
   nome: "Cotonete",
   link: "",
-  quantidadeDesejada: 10,
 },
 {
   id: "perfume",
@@ -232,22 +230,9 @@ export const presentes = [
   categoria: "higiene",
   nome: "Shampoo Neutro (Johnson's, Mustela ou Mamãe e Bebê Natura)",
   link: "",
-  quantidadeDesejada: 10,
+  quantidadeDesejada: 5,
 },
-{
-  id: "meias-sem-link",
-  categoria: "acessorios",
-  nome: "Meias",
-  link: "",
-  quantidadeDesejada: 10,
-},
-{
-  id: "luvas-sem-link",
-  categoria: "acessorios",
-  nome: "Luvas",
-  link: "",
-  quantidadeDesejada: 10,
-},
+
 {
   id: "macacao-fofo",
   categoria: "roupinhas",
