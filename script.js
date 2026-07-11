@@ -9,7 +9,8 @@ import {
 import {
     salvarReserva,
     contarReservas,
-    listarTodasReservas
+    listarTodasReservas,
+    cancelarReserva
 } from "./reservas.js";
 
 // ---------- ELEMENTOS ----------
@@ -302,7 +303,6 @@ painelMamae.classList.remove("oculto");
 async function carregarAreaMamae() {
 
     const reservas = await listarTodasReservas();
-    console.log(reservas);
 
     listaReservas.innerHTML = "";
 
@@ -311,27 +311,81 @@ async function carregarAreaMamae() {
     totalPresentes.textContent =
         new Set(reservas.map(r => r.presenteId)).size;
 
+    // Agrupa por presente
+    const grupos = {};
+
     reservas.forEach(reserva => {
 
+        if (!grupos[reserva.presenteId]) {
+
+            grupos[reserva.presenteId] = [];
+
+        }
+
+        grupos[reserva.presenteId].push(reserva);
+
+    });
+
+    // Cria um card para cada produto
+    Object.keys(grupos).forEach(presenteId => {
+
         const presente = presentes.find(
-            p => p.id === reserva.presenteId
+            p => p.id === presenteId
         );
 
-        listaReservas.innerHTML += `
+        const quantidadeDesejada =
+            presente?.quantidadeDesejada || 1;
+
+        let html = `
 
         <div class="reserva-card">
 
-            <h3>🎁 ${presente ? presente.nome : reserva.presenteId}</h3>
+            <h3>
+                🎁 ${presente?.nome || presenteId}
+            </h3>
 
-            <p><strong>👤</strong> ${reserva.nome}</p>
+            <p>
+                💕 ${grupos[presenteId].length} de ${quantidadeDesejada} reservados
+            </p>
 
-            <p><strong>📱</strong> ${reserva.telefone || "-"}</p>
-
-            <p><strong>💌</strong> ${reserva.mensagem || "-"}</p>
-
-        </div>
+            <hr>
 
         `;
+
+        grupos[presenteId].forEach(reserva => {
+
+            html += `
+
+                <div class="linhaReserva">
+
+                    <div>
+
+                        <strong>👤 ${reserva.nome}</strong><br>
+
+                        📱 ${reserva.telefone || "-"}<br>
+
+                        💌 ${reserva.mensagem || "-"}
+
+                    </div>
+
+                    <button
+                        class="btn-cancelar"
+                        data-id="${reserva.id}"
+                    >
+                        ❌
+                    </button>
+
+                </div>
+
+                <br>
+
+            `;
+
+        });
+
+        html += `</div>`;
+
+        listaReservas.innerHTML += html;
 
     });
 
@@ -342,3 +396,38 @@ fecharPainel.addEventListener("click", () => {
     painelMamae.classList.add("oculto");
 
 });
+
+// ---------- CANCELAR RESERVA ----------
+
+document.addEventListener("click", async (e) => {
+
+    if (!e.target.classList.contains("btn-cancelar")) return;
+
+    const confirmar = confirm(
+        "Deseja cancelar esta reserva?"
+    );
+
+    if (!confirmar) return;
+
+    try {
+
+        await cancelarReserva(
+            e.target.dataset.id
+        );
+
+        alert("Reserva cancelada com sucesso!");
+
+        carregarAreaMamae();
+
+        renderizarLista(pesquisa.value);
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert("Erro ao cancelar a reserva.");
+
+    }
+
+});
+           
