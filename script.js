@@ -247,7 +247,9 @@ const fecharPainel = document.getElementById("fecharPainel");
 
 abrirMamae.addEventListener("click", () => {
 
-    painelMamae.classList.remove("oculto");
+    alert("Abriu!");
+
+    painelMamae.style.display = "block";
 
 });
 
@@ -257,4 +259,4 @@ fecharPainel.addEventListener("click", () => {
 
 });
 
-console.log("Script carregado!");console.log("Script carregado!");
+console.log("Script carregado!");
