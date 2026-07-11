@@ -62,42 +62,6 @@ overflow:hidden;
 
 }
 
-.hero::before{
-
-content:"🌸";
-
-position:absolute;
-
-left:40px;
-
-top:35px;
-
-font-size:42px;
-
-opacity:.20;
-
-animation:flutuar 5s ease-in-out infinite;
-
-}
-
-.hero::after{
-
-content:"🌿";
-
-position:absolute;
-
-right:45px;
-
-top:45px;
-
-font-size:40px;
-
-opacity:.20;
-
-animation:flutuar 6s ease-in-out infinite;
-
-}
-
 .hero-content{
 
 max-width:760px;
