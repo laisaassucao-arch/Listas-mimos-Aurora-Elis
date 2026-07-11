@@ -8,7 +8,8 @@ import {
 
 import {
     salvarReserva,
-    contarReservas
+    contarReservas,
+    listarTodasReservas
 } from "./reservas.js";
 
 // ---------- ELEMENTOS ----------
@@ -255,6 +256,10 @@ const senhaMamae = document.getElementById("senhaMamae");
 const entrarMamae = document.getElementById("entrarMamae");
 const cancelarLogin = document.getElementById("cancelarLogin");
 
+const listaReservas = document.getElementById("listaReservas");
+const totalReservas = document.getElementById("totalReservas");
+const totalPresentes = document.getElementById("totalPresentes");
+
 const SENHA_MAMAE = "Aurora2026";
 
 // Abre o modal de login
@@ -288,12 +293,48 @@ entrarMamae.addEventListener("click", () => {
 
     }
 
-    modalLogin.classList.add("oculto");
+modalLogin.classList.add("oculto");
 
-    painelMamae.classList.remove("oculto");
+carregarAreaMamae();
 
+painelMamae.classList.remove("oculto");
 });
+async function carregarAreaMamae() {
 
+    const reservas = await listarTodasReservas();
+
+    listaReservas.innerHTML = "";
+
+    totalReservas.textContent = reservas.length;
+
+    totalPresentes.textContent =
+        new Set(reservas.map(r => r.presenteId)).size;
+
+    reservas.forEach(reserva => {
+
+        const presente = presentes.find(
+            p => p.id === reserva.presenteId
+        );
+
+        listaReservas.innerHTML += `
+
+        <div class="reserva-card">
+
+            <h3>🎁 ${presente ? presente.nome : reserva.presenteId}</h3>
+
+            <p><strong>👤</strong> ${reserva.nome}</p>
+
+            <p><strong>📱</strong> ${reserva.telefone || "-"}</p>
+
+            <p><strong>💌</strong> ${reserva.mensagem || "-"}</p>
+
+        </div>
+
+        `;
+
+    });
+
+}
 // Fecha o painel
 fecharPainel.addEventListener("click", () => {
 
