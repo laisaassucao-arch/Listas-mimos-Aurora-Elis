@@ -306,9 +306,7 @@ painelMamae.classList.remove("oculto");
 });
 async function carregarAreaMamae() {
 
-    reservasMamae = await cancelarReservaFirestore(
-    e.target.dataset.id
-);
+    const reservas = await listarTodasReservas();
 
     listaReservas.innerHTML = "";
 
