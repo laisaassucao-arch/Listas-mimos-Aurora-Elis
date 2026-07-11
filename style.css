@@ -749,3 +749,33 @@ margin-bottom:12px;
 margin:6px 0;
 
 }
+
+.btn-cancelar{
+
+margin-top:15px;
+
+width:100%;
+
+padding:12px;
+
+border:none;
+
+border-radius:12px;
+
+background:#E98B8B;
+
+color:white;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.25s;
+
+}
+
+.btn-cancelar:hover{
+
+background:#D46D6D;
+
+}

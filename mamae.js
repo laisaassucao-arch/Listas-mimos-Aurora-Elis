@@ -1,5 +1,8 @@
 import { presentes } from "./presentes.js";
-import { listarTodasReservas } from "./reservas.js";
+import {
+    listarTodasReservas,
+    cancelarReserva
+} from "./reservas.js";
 
 const lista = document.getElementById("listaReservas");
 const totalReservas = document.getElementById("totalReservas");
@@ -48,6 +51,13 @@ function renderizar(filtro=""){
 
                 <p><strong>💌</strong> ${reserva.mensagem || "-"}</p>
 
+<button
+    class="btn-cancelar"
+    data-id="${reserva.id}"
+>
+    ❌ Cancelar Reserva
+</button>
+
             </div>
         `;
 
@@ -70,3 +80,21 @@ pesquisa.addEventListener("input",(e)=>{
 });
 
 carregar();
+
+document.addEventListener("click", async(e)=>{
+
+    if(!e.target.classList.contains("btn-cancelar")) return;
+
+    const confirmar = confirm(
+        "Deseja realmente cancelar esta reserva?"
+    );
+
+    if(!confirmar) return;
+
+    await cancelarReserva(
+        e.target.dataset.id
+    );
+
+    carregar();
+
+});

@@ -6,7 +6,9 @@ import {
     getDocs,
     query,
     where,
-    serverTimestamp
+    serverTimestamp,
+    deleteDoc,
+    doc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 /**
@@ -79,5 +81,13 @@ export async function listarTodasReservas(){
         id: doc.id,
         ...doc.data()
     }));
+
+}
+
+export async function cancelarReserva(id){
+
+    await deleteDoc(
+        doc(db,"reservas",id)
+    );
 
 }
