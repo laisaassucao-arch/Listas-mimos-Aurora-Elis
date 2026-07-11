@@ -2,11 +2,16 @@ import { presentes } from "./presentes.js";
 import { db } from "./firebase.js";
 
 import {
-  doc,
-  setDoc,
-  onSnapshot,
-  collection
+    doc,
+    setDoc,
+    onSnapshot,
+    collection
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+import {
+    salvarReserva,
+    contarReservas
+} from "./reservas.js";
 
 // ---------- ELEMENTOS ----------
 
