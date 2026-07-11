@@ -244,12 +244,13 @@ renderizarLista();
 const painelMamae = document.getElementById("painelMamae");
 const abrirMamae = document.getElementById("abrirMamae");
 const fecharPainel = document.getElementById("fecharPainel");
+const sitePublico = document.getElementById("sitePublico");
 
 abrirMamae.addEventListener("click", () => {
 
-    alert("Abriu!");
+    sitePublico.style.display = "none";
 
-    painelMamae.style.display = "block";
+    painelMamae.classList.remove("oculto");
 
 });
 
@@ -257,6 +258,6 @@ fecharPainel.addEventListener("click", () => {
 
     painelMamae.classList.add("oculto");
 
-});
+    sitePublico.style.display = "block";
 
-console.log("Script carregado!");
+});

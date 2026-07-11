@@ -786,9 +786,15 @@ PAINEL MAMÃE
 
 #painelMamae{
 
+#painelMamae{
+
+min-height:100vh;
+
+background:linear-gradient(180deg,#FFFDFB,#FFF7F5);
+
 padding:60px 0;
 
-background:#FFFDFB;
+}
 
 }
 
