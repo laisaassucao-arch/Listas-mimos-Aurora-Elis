@@ -68,3 +68,16 @@ export async function listarReservas(presenteId) {
     }));
 
 }
+
+export async function listarTodasReservas(){
+
+    const snapshot = await getDocs(
+        collection(db,"reservas")
+    );
+
+    return snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+
+}
